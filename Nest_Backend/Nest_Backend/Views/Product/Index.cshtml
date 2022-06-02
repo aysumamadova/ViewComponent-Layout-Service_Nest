@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<div class="container mt-30">
+    <div class="row flex-row-reverse">
+        <div class="col-lg-4-5">
+            <div class="row product-grid">
+                @await Component.InvokeAsync("Product",new { take = 10, skip = 5 })
+                @*@await Html.PartialAsync("~/Views/Shared/_ProductPartial.cshtml")*@
+                <!--end product card-->
+            </div>
+            <input type="hidden" value="@ViewBag.ProductCount" id="proCount" />
+            <div class="d-flex justify-content-center mb-30">
+                <button class="btn btn-brand" id="btnLoadMore">Load more</button>
+            </div>
+            <!--product grid-->
+            @*<div class="pagination-area mt-20 mb-20">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-start">
+                            <li class="page-item">
+                                <a class="page-link" href="#"><i class="fi-rs-arrow-small-left"></i></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link dot" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#">6</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#"><i class="fi-rs-arrow-small-right"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>*@
+            <!--End Deals-->
+        </div>
+        <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
+            <div class="sidebar-widget widget-category-2 mb-30">
+                <h5 class="section-title style-1 mb-30">Category</h5>
+                <ul>
+                    @foreach (Categories item in ViewBag.Categories)
+                    {
+                        <li class="category-filter" data-id="@item.Id">
+                            <a> <img src="assets/imgs/shop/@item.Logo" alt="" />@item.Name</a><span class="count">@item.Products.Count</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <!-- Fillter By Price -->
+            <div class="sidebar-widget price_range range mb-30">
+                <h5 class="section-title style-1 mb-30">Fill by price</h5>
+                <div class="price-filter">
+                    <div class="price-filter-inner">
+                        <div id="slider-range" class="mb-20"></div>
+                        <div class="d-flex justify-content-between">
+                            <div class="caption">From: <strong id="slider-range-value1" class="text-brand"></strong></div>
+                            <div class="caption">To: <strong id="slider-range-value2" class="text-brand"></strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product sidebar Widget -->
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).on("click", "#btnLoadMore", function () {
+            let skip = $(".product-grid").children().length;
+            let prodCount = $("#proCount").val();
+            $.ajax({
+                url: "/Product/LoadMore",
+                method: 'GET',
+                data: {
+                    skip: skip
+                },
+                success: function (res) {
+                    $(".product-grid").append(res);
+                    if ($(".product-grid").children().length >= prodCount) {
+                        $("#btnLoadMore").remove();
+                    }
+                }
+            })
+        })
+        $(document).on("click", ".category-filter", function () {
+            let id = $(this).attr("data-id");
+            $.ajax({
+                url: "/Product/CategoryFilter",
+                method: 'GET',
+                data: {
+                    CategoryId: id
+                },
+                success: function (res) {
+                    $(".product-grid").html(res);
+                }
+            })
+        })
+    </script>
+}
