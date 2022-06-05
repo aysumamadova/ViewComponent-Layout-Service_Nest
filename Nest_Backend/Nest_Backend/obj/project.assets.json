@@ -8475,24 +8475,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tu7tw2d21\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\AysuMemmedova\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tu7tw2d21\\Desktop\\Cookie-Session_Nest\\Nest_Backend\\Nest_Backend\\Nest_Backend.csproj",
+      "projectUniqueName": "C:\\Users\\AysuMemmedova\\Desktop\\ViewComponent-Layout-Service_Nest\\Nest_Backend\\Nest_Backend\\Nest_Backend.csproj",
       "projectName": "Nest_Backend",
-      "projectPath": "C:\\Users\\tu7tw2d21\\Desktop\\Cookie-Session_Nest\\Nest_Backend\\Nest_Backend\\Nest_Backend.csproj",
-      "packagesPath": "C:\\Users\\tu7tw2d21\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tu7tw2d21\\Desktop\\Cookie-Session_Nest\\Nest_Backend\\Nest_Backend\\obj\\",
+      "projectPath": "C:\\Users\\AysuMemmedova\\Desktop\\ViewComponent-Layout-Service_Nest\\Nest_Backend\\Nest_Backend\\Nest_Backend.csproj",
+      "packagesPath": "C:\\Users\\AysuMemmedova\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\AysuMemmedova\\Desktop\\ViewComponent-Layout-Service_Nest\\Nest_Backend\\Nest_Backend\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\tu7tw2d21\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\AysuMemmedova\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8555,7 +8550,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }
